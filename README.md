@@ -175,6 +175,9 @@ kubectl get pods -A
 
 You should see pods in `payments`, `storefront` and `dev-sandbox` with STATUS `Running`.
 
+<img width="1542" height="240" alt="image" src="https://github.com/user-attachments/assets/ce67c1cb-302a-49cd-b3a1-eeeb23946fdb" />
+
+
 **Step 2.4: Take a baseline.** This shows how busy each server is right now.
 
 ```bash
@@ -191,6 +194,9 @@ kubectl get jobs -n trivy-system
 ```
 
 You should see `Trivy Operator is running`, then a list of scan jobs. The scans run in the background and take a few minutes, so carry on.
+
+<img width="1542" height="67" alt="image" src="https://github.com/user-attachments/assets/4f6802b0-ffb0-41a3-8e1a-c2044269dfe1" />
+
 
 **Checkpoint 2:** the apps are `Running` and Trivy is installed.
 
@@ -210,6 +216,9 @@ Read the green lines as they appear. You should see:
 - Tables of secrets from `payments` and `storefront` (**allowed**).
 - Three `Forbidden` errors (**denied**): listing the servers, getting into the `payments-api` app, and listing pods as `system:anonymous`.
 - `deployment.apps/cache-warmer created`.
+
+<img width="1542" height="325" alt="image" src="https://github.com/user-attachments/assets/de7477c4-9d77-47f1-b439-9eb084bd16c9" />
+
 
 **Step 3.2: Lens 1, Metrics.** Metrics show how busy things are. Wait about 90 seconds, then run these three commands: the busiest pods, the busiest servers, and recent cluster events.
 
@@ -259,6 +268,9 @@ If you cannot see `code`, or the screen does not match these steps, run `./works
 ```
 
 This shows requests that were **refused**. Look for three rows with code **403**: `system:anonymous` **list pods**, `dev-sandbox:default` **list nodes**, and `dev-sandbox:default` **get deployments**. These are the intruder's blocked attempts. Ignore the other rows: the 404 just means "not found", and the 429 rows are AWS's own background activity.
+
+<img width="1697" height="420" alt="image" src="https://github.com/user-attachments/assets/5bdfa2d1-69f5-4fa6-9e1b-7a05badc32a0" />
+
 
 ```bash
 ./workshop.sh query changes
@@ -363,6 +375,9 @@ python3 risk_report.py --label before
 
 It prints two tables. **Table 1** gives each namespace a risk score (more serious findings and more important teams contribute more to the overall score). **Table 2**, the fix-first list, shows which fixes would remove the most risk. Your numbers will differ from your neighbour's, so focus on which items rank highest.
 
+<img width="1697" height="340" alt="image" src="https://github.com/user-attachments/assets/6097dce8-6d0a-4403-9aff-db82068b5431" />
+
+
 > **Q9.** (a) Which namespace carries the most risk? (b) Why does it rank there? (c) What is #1 on the fix-first list? (d) How many apps does that one fix improve?
 
 **Step 5.2 *(optional)*: Add what the audit log in cloudwatch taught us.** The report treated `dev-sandbox` as low importance, but the audit log showed its token could read `payments` secrets which makes it considerably more consequential. This command re-runs the report treating `dev-sandbox` as a **critical** source of vulnerability. See how this changes the ranking.
@@ -433,6 +448,9 @@ This takes about **10 minutes**. It deletes the cluster, servers, network and IA
 ```
 
 **Step 7.3: Check the console.** This is the final check. With Sydney selected, confirm each of these is empty: **EKS** clusters (no `sec-analytics-ws`), **CloudFormation** stacks (none starting `eksctl-sec-analytics-ws`), **EC2** instances (nothing running), **CloudWatch** log groups (no `/aws/eks/sec-analytics-ws/cluster`) and **VPC** (none named `eksctl-sec-analytics-ws...`).
+
+<img width="1697" height="177" alt="image" src="https://github.com/user-attachments/assets/ef98e5ec-0881-4fa4-9d97-c16bb01f5754" />
+
 
 ---
 
