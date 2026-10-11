@@ -91,6 +91,9 @@ tail -f create-cluster.log
 
 The first command should print your identity and `Cluster creation started`. The second shows the build log; lines such as `creating CloudFormation stack "eksctl-sec-analytics-ws-cluster"` mean it is working. If you see `No such file or directory`, check you typed the leading `./` and that your prompt shows `ws` (if not, run `cd ~/ws`).
 
+<img width="3454" height="588" alt="Screenshot 2026-10-12 at 1 44 57 am" src="https://github.com/user-attachments/assets/adaf66bc-337a-4bf2-9210-7d9178dbc11d" />
+
+
 Press **Ctrl+C** to stop watching the log. The build keeps going. **CloudShell closes after 20 to 30 minutes with no keyboard activity**, so press a key every few minutes while you wait.
 
 **Checkpoint 0:** the log is growing with no red errors.
@@ -100,6 +103,9 @@ Press **Ctrl+C** to stop watching the log. The build keeps going. **CloudShell c
 ## Module 1: While the cluster builds
 
 Open a new terminal by clicking the plus button and selecting ap-southeast-2.
+
+<img width="3454" height="898" alt="Screenshot 2026-10-12 at 1 50 04 am" src="https://github.com/user-attachments/assets/fac47e60-58a8-4b8a-b34e-89899ea4ad0c" />
+
 
 > **While the cluster builds:** do **Steps 1.1, 1.2 and 1.3** straight away, and **Step 1.4** after about 10 minutes. Do not start Module 2 until the build has finished.
 
@@ -146,6 +152,9 @@ Then connect to the cluster:
 ```
 
 You should see **two nodes with STATUS `Ready`**. If it says the cluster is not ready, wait a minute and try again.
+
+<img width="1542" height="150" alt="image" src="https://github.com/user-attachments/assets/97a2e7a1-6253-49f5-9827-1b4ccc3a3c23" />
+
 
 **Step 2.2: Deploy the three teams' apps.** This starts the apps from `app.yaml` in the cluster.
 
