@@ -12,7 +12,7 @@ You are investigating a suspicious incident on **ShopFast**'s shared Kubernetes 
 
 - An AWS account you are allowed to create resources in (a personal or sandbox account, **not production**), and a sign-in with **administrator permissions**.
 - A web browser. You install nothing on your laptop; every command runs in AWS CloudShell (a terminal inside the AWS console).
-- The file **`workshop.sh`**. Download the file by right clicking and selecting 'Save Link As' [here](https://github.com/DaleOrders/Kubernetes_Security_Business_Analytics_Workshop/raw/refs/heads/main/workshop.sh). Alternatively you can download a copy directly from this repo.
+- The file **`workshop.sh`**. Download the file by right clicking and selecting 'Save Link As...' [here](https://github.com/DaleOrders/Kubernetes_Security_Business_Analytics_Workshop/raw/refs/heads/main/workshop.sh). Alternatively you can download a copy directly from this repo.
 
 > **Cost warning:** the cluster costs about **A$0.33 per hour while it exists** (about A$8 a day if forgotten). Module 7 removes everything. Do not skip it.
 
@@ -37,7 +37,7 @@ aws ec2 describe-availability-zones --query "AvailabilityZones[0].RegionName" --
 
 The first shows your account number and user. The second must print `ap-southeast-2`. If not, close CloudShell, repeat Step 0.2 and reopen it.
 
-**Step 0.5: Upload the workshop file.** Save `workshop.sh` on your computer first. Then upload it to CloudShell:
+**Step 0.5: Upload the workshop file.** Save `workshop.sh` on your computer firstby right clicking and selecting 'Save Link As...' [here]. Then upload it to CloudShell:
 
 1. In the CloudShell window, click **Actions** (top right of the terminal).
 2. Choose **Upload file**.
