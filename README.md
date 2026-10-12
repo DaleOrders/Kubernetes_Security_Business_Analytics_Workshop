@@ -111,7 +111,7 @@ Open a new terminal by clicking the plus button and selecting ap-southeast-2.
 
 **Step 1.1: Watch AWS build it.** In the console search bar open **CloudFormation**. Click the stack **`eksctl-sec-analytics-ws-cluster`**, open the **Events** tab and refresh a few times. You will see the network, an IAM role and then the cluster appear.
 
-**Step 1.2: Spot the Errors.** ShopFast's engineers wrote the apps you are about to deploy and made some mistakes. This command opens the file so you can read it and find them. Your prompt should show `ws` (if not, run `cd ~/ws` first).
+**Step 1.2: Spot the Errors.** ShopFast's engineers wrote the apps you are about to deploy and made some mistakes. This command opens the file so you can read it and find them.
 
 ```bash
 less app.yaml
@@ -380,7 +380,7 @@ It prints two tables. **Table 1** gives each namespace a risk score (more seriou
 
 > **Q9.** (a) Which namespace carries the most risk? (b) Why does it rank there? (c) What is #1 on the fix-first list? (d) How many apps does that one fix improve?
 
-**Step 5.2 *(optional)*: Add what the audit log in cloudwatch taught us.** The report treated `dev-sandbox` as low importance, but the audit log showed its token could read `payments` secrets which makes it considerably more consequential. This command re-runs the report treating `dev-sandbox` as a **critical** source of vulnerability. See how this changes the ranking.
+**Step 5.2 *(optional)*: Add what the audit log in cloudwatch taught us.** The report treated `dev-sandbox` as low importance, but the audit log from cloudwatcch insights showed its token could read `payments` secrets which makes it considerably more consequential. This command re-runs the report treating `dev-sandbox` as a **critical** source of vulnerability. See how this changes the ranking.
 
 ```bash
 python3 risk_report.py --label escalated --escalate dev-sandbox=critical
