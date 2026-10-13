@@ -71,7 +71,7 @@ It should print `/home/cloudshell-user/ws`. If you get `No such file or director
 ./workshop.sh tools
 ```
 
-You should see three image names, then `Created: app.yaml fixed.yaml risk_report.py`, then the tools installing, ending with `Tools installed. Now run: source ~/.bashrc`.
+You should see three image names, then `Created: app.yaml fixed.yaml risk_report.py`, then the tools installing, ending with `Tools installed.'
 
 **Step 0.7: Load the tools and check them.** This makes the new tools available in your terminal.
 
@@ -326,7 +326,7 @@ By now Trivy should have finished most of its scans.
 kubectl get vulnerabilityreports -A -o wide
 ```
 
-You should see **one row per app**. **The counts are not attacks.** They are the number of known weaknesses in the software inside the image. Nobody has exploited them; someone *could*. How to read a row:
+You should see **one row per app**. **The counts are not the number of attacks.** They are the number of known weaknesses in the software inside the image. Nobody has exploited them; someone *could*. How to read a row:
 
 | Column | Meaning |
 |---|---|
@@ -380,7 +380,7 @@ It prints two tables. **Table 1** gives each namespace a risk score (more seriou
 
 > **Q9.** (a) Which namespace carries the most risk? (b) Why does it rank there? (c) What is #1 on the fix-first list? (d) How many apps does that one fix improve?
 
-**Step 5.2 *(optional)*: Add what the audit log in cloudwatch taught us.** The report treated `dev-sandbox` as low importance, but the audit log from cloudwatcch insights showed its token could read `payments` secrets which makes it considerably more consequential. This command re-runs the report treating `dev-sandbox` as a **critical** source of vulnerability. See how this changes the ranking.
+**Step 5.2 *(optional)*: Add what the audit log in cloudwatch taught us.** The report treated `dev-sandbox` as low importance, but the audit log from cloudwatch insights showed its token could read `payments` secrets which makes it considerably more consequential as a source of risk. This command re-runs the report treating `dev-sandbox` as a **critical** source of vulnerability. See how this changes the ranking.
 
 ```bash
 python3 risk_report.py --label escalated --escalate dev-sandbox=critical
@@ -431,13 +431,11 @@ Look for the section **`=== BEFORE vs AFTER ===`** at the bottom to see the redu
 
 **Do not skip this module.** It deletes everything you built so you are not billed afterwards.
 
-**Step 7.1: Delete everything.** Make sure your prompt shows `ws` (if not, run `cd ~/ws`), then type the command exactly, **including the `./` at the start**:
+**Step 7.1: Delete everything.** Make sure your prompt shows `ws` (if not, run `cd ~/ws`), then type the following command in cloudshell.
 
 ```bash
 ./workshop.sh cleanup
 ```
-
-If you see `bash: /workshop.sh: No such file or directory`, the leading dot is missing: type `./workshop.sh cleanup`.
 
 This takes about **10 minutes**. It deletes the cluster, servers, network and IAM roles, and the audit log group, then checks that everything is gone. **Keep the CloudShell tab open until it finishes.**
 
