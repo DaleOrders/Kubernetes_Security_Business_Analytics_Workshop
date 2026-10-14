@@ -107,7 +107,7 @@ Open a new terminal by clicking the plus button and selecting ap-southeast-2.
 <img width="3454" height="898" alt="Screenshot 2026-10-12 at 1 50 04 am" src="https://github.com/user-attachments/assets/fac47e60-58a8-4b8a-b34e-89899ea4ad0c" />
 
 
-> **While the cluster builds:** do **Steps 1.1, 1.2 and 1.3** straight away, and **Step 1.4** after about 10 minutes. Do not start Module 2 until the build has finished.
+> **While the cluster builds:** do **Steps 1.1, 1.2 and 1.3** straight away. Do not start Module 2 until the build has finished.
 
 **Step 1.1: Watch AWS build it.** In the console search bar open **CloudFormation**. Click the stack **`eksctl-sec-analytics-ws-cluster`**, open the **Events** tab and refresh a few times. You will see the network, an IAM role and then the cluster appear.
 
