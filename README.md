@@ -64,6 +64,8 @@ pwd
 
 It should print `/home/cloudshell-user/ws`. If you get `No such file or directory`, the upload did not finish: repeat steps 1 to 4. Run every later command from this `ws` folder. If you open a new CloudShell tab, type `cd ~/ws` first.
 
+All the commands from this point onwards will be from the ~/ws directory. If you ever encounter an error, always make sure to run `cd ~/ws` in your cloudshell to make sure you are in the right place.
+
 **Step 0.6: Unpack the files and install the tools.** This creates the files used in the workshop and installs two tools: **eksctl** (builds the cluster) and **helm** (installs software into it).
 
 ```bash
